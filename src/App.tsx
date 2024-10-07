@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from "styled-components";
 
 import PriceTracker from "./components/PriceTracker";
+import Footer from "./components/Footer";
 import { Bitcoin } from "./interfaces/Bitcoin";
 
 const ParentDiv = styled.div`
@@ -31,6 +32,7 @@ export default function App() {
   return (
     <ParentDiv>
       <PriceTracker data={data}/>
+      <Footer />
     </ParentDiv>
   )
 }
