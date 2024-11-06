@@ -5,9 +5,7 @@ export interface Bitcoin {
     chartName: string;
     bpi: {
         USD: {
-            code: string;
             rate: string;
-
         }
     }
 }

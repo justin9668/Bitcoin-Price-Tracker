@@ -10,16 +10,26 @@ const Card = styled.div`
     padding: 20px;
 `;
 
-const Title = styled.h1`
-    font-size: 24px;
-    color: #09090B;
-    margin-bottom: 10px;
+const TitleWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 6px;
 `;
 
-const Subtitle = styled.p`
-    font-size: 14px;
+const BitcoinIcon = styled.img`
+    width: 24px;
+    height: 24px;
+`;
+
+const Title = styled.h1`
+    font-size: 20px;
+    color: #09090B;
+    font-weight: 500;
+`;
+
+const Subtitle = styled.span`
+    font-size: 16px;
     color: #71717A;
-    margin-bottom: 20px;
 `;
 
 const Price = styled.p`
@@ -58,8 +68,11 @@ export default function PriceTracker(props: {data: Bitcoin[]}) {
             {
                 props.data.map((bitcoin: Bitcoin) =>
                     <div key={bitcoin.time.updated}>
-                        <Title>{bitcoin.chartName} Price Tracker</Title>
-                        <Subtitle>Live {bitcoin.chartName} price in {bitcoin.bpi.USD.code}</Subtitle>
+                        <TitleWrapper>
+                            <BitcoinIcon src="/bitcoin-logo.png" alt="Bitcoin logo" />
+                            <Title>{bitcoin.chartName}</Title>
+                            <Subtitle>BTC</Subtitle>
+                        </TitleWrapper>
                         <Price>${bitcoin.bpi.USD.rate}</Price>
                         <LastUpdated>Last updated: {elapsedSeconds} seconds ago</LastUpdated>
                     </div>
